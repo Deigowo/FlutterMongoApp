@@ -65,7 +65,7 @@ class MongoService {
   }
 
   Future<void> deletePhone(mongo.ObjectId id) async {
-    var collection = db.collection('calulares');
+    var collection = _db.collection('calulares');
     await collection.remove(mongo.where.eq('_id', id));
   }
 }
