@@ -4,14 +4,14 @@ class PhoneModel {
   final mongo.ObjectId id;
   String marca;
   String modelo;
-  int existencia;
+  int unidades;
   double precio;
 
   PhoneModel({
     required this.id,
     required this.marca,
     required this.modelo,
-    required this.existencia,
+    required this.unidades,
     required this.precio,
   });
 
@@ -21,7 +21,7 @@ class PhoneModel {
       '_id': id,
       'marca': marca,
       'modelo': modelo,
-      'existencia': existencia,
+      'unidades': unidades,
       'precio': precio,
     };
   }
@@ -41,7 +41,7 @@ class PhoneModel {
       id: id as mongo.ObjectId, 
       marca: json['marca'] as String, 
       modelo: json['modelo'] as String, 
-      existencia: json['existencia'] as int, 
+      unidades: json['unidades'] as int,
       precio: json['precio'] as double);
   }
 }
