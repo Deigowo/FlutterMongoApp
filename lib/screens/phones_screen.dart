@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mongo_app/models/phone_model.dart';
+import 'package:mongo_app/screens/insert_phone_screen.dart';
 import 'package:mongo_app/services/mongo_service.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo;
 
@@ -43,6 +44,25 @@ class _PhoneScreenState extends State<PhoneScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inventario de telefonos'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: GestureDetector(
+              onTap: () async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const InsertPhoneScreen(), 
+                  )
+                );
+                _fetchPhones();
+              },
+              child: const Icon(
+                Icons.add,
+                size: 26.0,
+                ),
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
       itemCount: phones.length,
